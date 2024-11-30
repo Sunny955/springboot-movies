@@ -33,7 +33,7 @@ public class RateLimitingAspect {
     @Around("@annotation(com.project.movies.annotataion.RateLimited)")
     public Object rateLimit(ProceedingJoinPoint point) throws Throwable {
         log.info("Running rate limiter AOP!");
-        Cache cache = cacheManager.getCache("rateLimitCache");
+        Cache cache = cacheManager.getCache("cache");
 
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
